@@ -1,0 +1,22 @@
+import math
+from matplotlib import pyplot as plt
+
+xSin = [0]
+ySin = [math.sin(0)]
+xCos = [0]
+yCos = [math.cos(0)]
+
+maxNumber = 20
+pointsPerUnit = 100
+
+for i in range(maxNumber * pointsPerUnit):
+    xSin.append(xSin[i] + (1 / pointsPerUnit))
+    ySin.append(math.sin(xSin[i + 1]))
+    xCos.append(xCos[i] + (1 / pointsPerUnit))
+    yCos.append(math.cos(xCos[i + 1]))
+
+plt.plot(xSin, ySin)
+plt.plot(xCos, yCos)
+plt.legend(["Sin", "Cos"])
+plt.grid(color='#1d1d1b', linestyle='-', linewidth=0.5)
+plt.show()
